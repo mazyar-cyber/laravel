@@ -472,3 +472,23 @@ Route::get('/session', function (Request $request) {
     $request->session()->keep('message');
     return $request->session()->all();
 });
+
+
+////practicing
+//Route::resource("/basket","BasketController")->middleware('auth','verified');
+Route::prefix('fa')->group(function () {
+    App::setLocale('fa');
+    Route::get('/message', function () {
+        return view('mazyar');
+    });
+});
+Route::get('/ku/message', function () {
+    App::setLocale('kurdish');
+    return view('mazyar');
+});
+//Route::prefix('ku')->group(function () {
+//    App::setLocale('kurdish');
+//    Route::get('/message', function () {
+//        return view('mazyar');
+//    });
+//});
